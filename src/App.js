@@ -1,26 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
 function App() {
+  let [colorRed, setColorRed] = useState(0);
+  let [colorGreen, setColorGreen] = useState(0);
+  let [colorBlue, setColorBlue] = useState(0);
+
+  let handleChangeRed = (e) => {
+    setColorRed(e.target.value);
+  };
+
+  let handleChangeGreen = (e) => {
+    setColorGreen(e.target.value);
+  };
+
+  let handleChangeBlue = (e) => {
+    setColorBlue(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+      <h1>RGB COLOR CHANGER</h1>
+      <div className="box" style={{ backgroundColor: `rgb(${colorRed}, ${colorGreen}, ${colorBlue})`}} />
+      <div className="selector">
+        <h1>Selecione sua cor abaixo:</h1>
+        R{" "}
+        <input
+          type="range"
+          name="red"
+          id="red"
+          min="0"
+          max="255"
+          value={colorRed}
+          onChange={handleChangeRed}
+        />
+        <input type="text" name="valor" id="valorRed" value={colorRed} />
+        <br />
+        G{" "}
+        <input
+          type="range"
+          id="green"
+          min="0"
+          max="255"
+          value={colorGreen}
+          onChange={handleChangeGreen}
+        />
+        <input type="text" name="valor" id="valorGreen" value={colorGreen} />
+        <br />
+        B{" "}
+        <input
+          type="range"
+          id="blue"
+          min="0"
+          max="255"
+          value={colorBlue}
+          onChange={handleChangeBlue}
+        />
+        <input type="text" name="valor" id="valorBlue" value={colorBlue} />
+        <br />
+      </div>
     </div>
   );
 }
+
+
 
 export default App;
