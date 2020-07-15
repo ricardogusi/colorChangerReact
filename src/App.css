@@ -17,3 +17,12 @@
   padding: 15px;
   
 }
+
+.ranges {
+  padding: 10px;
+  display: inline-block;
+}
+
+.label {
+  margin-right: 10px;
+}
